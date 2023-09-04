@@ -17,17 +17,22 @@ const slides = [
 	}
 ]
 
-const left = document.querySelector(".arrow_left")
-const right = document.querySelector(".arrow_right")
+const left = document.querySelector(".arrow_left");
+const right = document.querySelector(".arrow_right");
+const point = document.querySelector(".dot");
+const img = document.querySelector(".banner-img");
+const txt = document.querySelector(".img-txt")
 
-console.log(left, right, slides)
+console.log(left, right, point, img, txt)
 
 left.addEventListener("click",() => {
 	if (slides == 0) {
-		slides = -1 };
+		slides = -1 } 
+		point.classList.add("dot_selected");
 });
 
 right.addEventListener("click",() => {
 	if (slides == 0) {
-	slides =  +1 };
+	slides =  +1 }
+	point.classList.add("dot_selected");
 });
