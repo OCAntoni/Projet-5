@@ -19,7 +19,7 @@ const slides = [
 
 const left = document.querySelector(".arrow_left");
 const right = document.querySelector(".arrow_right");
-const point = document.querySelector(".dot");
+let point = document.querySelector(".dot");
 const img = document.querySelector(".banner-img");
 const txt = document.querySelector(".img-txt");
 
@@ -28,15 +28,16 @@ let positionSlide =0;
 console.log(left, right, point, img, txt);
 
 left.addEventListener("click",() => {
-	if (slides == 0) {
-		slides = -1 } 
-		img.src = slides[positionSlide].image;
-		point.classList.add("dot_selected");
+	if (positionSlide == 1) {
+	positionSlide = -1 } 
+	img.src = slides[positionSlide].image;
+	point.classList.add("dot_selected");
 });
 
 right.addEventListener("click",() => {
-	if (slides == 0) {
-	slides =  +1 }
+	if (positionSlide == 0) {
+	positionSlide =  +1 }
 	img.src = slides[positionSlide].image;
 	point.classList.add("dot_selected");
+	console.log(right);
 });
