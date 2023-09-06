@@ -19,25 +19,29 @@ const slides = [
 
 const left = document.querySelector(".arrow_left");
 const right = document.querySelector(".arrow_right");
-let point = document.querySelector(".dot");
+const point = document.querySelector(".dot");
 const img = document.querySelector(".banner-img");
 const txt = document.querySelector(".img-txt");
 
 let positionSlide =0;
 
-console.log(left, right, point, img, txt);
 
 left.addEventListener("click",() => {
-	if (positionSlide == 1) {
+	positionSlide--;
+	if (positionSlide == 0) {
 	positionSlide = -1 } 
 	img.src = slides[positionSlide].image;
+	txt.innerHTML = slides[positionSlide].tagLine;
 	point.classList.add("dot_selected");
+	console.log("Click on left arrow");
 });
 
 right.addEventListener("click",() => {
+	positionSlide++;
 	if (positionSlide == 0) {
 	positionSlide =  +1 }
 	img.src = slides[positionSlide].image;
+	txt.innerHTML = slides[positionSlide].tagLine;
 	point.classList.add("dot_selected");
-	console.log(right);
+	console.log("Click on right arrow");
 });
