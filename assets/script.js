@@ -1,3 +1,4 @@
+//Tableau de base avec les propriétees appliquer aux images et textes + chemin des images//
 const slides = [
 	{
 		"image":"./assets/images/slideshow/slide1.jpg",
@@ -17,15 +18,18 @@ const slides = [
 	}
 ]
 
+//Déclarations des constantes + asignations//
 const left = document.querySelector(".arrow_left");
 const right = document.querySelector(".arrow_right");
 const point = document.querySelector(".dot");
 const img = document.querySelector(".banner-img");
 const txt = document.querySelector(".img-txt");
 
-let positionSlide =0;
+//Déclaration point de départ du tableau + point maximal du tableau//
+let positionSlide = 0;
+let maxLenght = 4;
 
-
+//Evènement click flèche gauche//
 left.addEventListener("click",() => {
 	positionSlide--;
 	if (positionSlide == 0) {
@@ -36,6 +40,7 @@ left.addEventListener("click",() => {
 	console.log("Click on left arrow");
 });
 
+//Evènement click flèche droite//
 right.addEventListener("click",() => {
 	positionSlide++;
 	if (positionSlide == 0) {
@@ -45,3 +50,12 @@ right.addEventListener("click",() => {
 	point.classList.add("dot_selected");
 	console.log("Click on right arrow");
 });
+
+//Essai fin du diaporama//
+if (positionSlide > maxLenght) {
+	 positionSlide == 0;
+}
+//Essai retour fin du diapo//
+if (positionSlide < 0) {
+	positionSlide == 4;
+}
