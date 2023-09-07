@@ -21,41 +21,39 @@ const slides = [
 //Déclarations des constantes + asignations//
 const left = document.querySelector(".arrow_left");
 const right = document.querySelector(".arrow_right");
-const point = document.querySelector(".dot");
+const point = document.querySelectorAll(".dot");
 const img = document.querySelector(".banner-img");
 const txt = document.querySelector(".img-txt");
 
 //Déclaration point de départ du tableau + point maximal du tableau//
 let positionSlide = 0;
-let maxLenght = 4;
+let maxLenght = 3;
 
 //Evènement click flèche gauche//
 left.addEventListener("click",() => {
+	point[positionSlide].classList.remove("dot_selected")
 	positionSlide--;
-	if (positionSlide == 0) {
-	positionSlide = -1 } 
-	img.src = slides[positionSlide].image;
-	txt.innerHTML = slides[positionSlide].tagLine;
-	point.classList.add("dot_selected");
+	if (positionSlide < 0) {
+		positionSlide = 3 
+	} 
+	changeSlide();
 	console.log("Click on left arrow");
 });
 
 //Evènement click flèche droite//
 right.addEventListener("click",() => {
+	point[positionSlide].classList.remove("dot_selected")
 	positionSlide++;
-	if (positionSlide == 0) {
-	positionSlide =  +1 }
-	img.src = slides[positionSlide].image;
-	txt.innerHTML = slides[positionSlide].tagLine;
-	point.classList.add("dot_selected");
+	if (positionSlide > 3) {
+		positionSlide =  0	
+	}
+	changeSlide();
 	console.log("Click on right arrow");
 });
 
-//Essai fin du diaporama//
-if (positionSlide > maxLenght) {
-	 positionSlide == 0;
-}
-//Essai retour fin du diapo//
-if (positionSlide < 0) {
-	positionSlide == 4;
-}
+//Création d'une fonction//
+function changeSlide () {
+	img.src = slides[positionSlide].image;
+	txt.innerHTML = slides[positionSlide].tagLine;
+	point[positionSlide].classList.add("dot_selected");
+};
