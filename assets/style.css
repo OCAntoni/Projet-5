@@ -132,6 +132,11 @@ header {
 #banner .arrow {
 	position: absolute;
 }
+
+.arrow:hover {
+	cursor: pointer;
+}
+
 #banner .arrow_left {
 	left: 10px;
 }
